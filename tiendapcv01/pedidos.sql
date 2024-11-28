@@ -51,42 +51,65 @@ CREATE TABLE IF NOT EXISTS pedidos_productos(
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 INSERT INTO cliente (Correo, Clave) VALUES 
-('La Ragua', 'clave1'),
-('Foster', 'clave2'),
-('Burger King', 'clave3'),
-('Doner Kebab', 'clave4');
+('Admin', 'admin'),
+('paco', 'clave1'),
+('javi', 'javi'),
+('manolo', 'clave2');
 
 INSERT INTO categoria (NombreCat) VALUES 
-('Bebidas'),
-('Carnes'),
-('Frutas'),
-('Postres');
+('Ordenadores de sobremesa'),
+('Portatiles'),
+('Componentes'),
+('Accesorios');
 
 INSERT INTO producto (CodCat, NombreProd, Stock) VALUES
--- Para la categoría 'Bebidas'
-(1, 'Refresco', 50),
-(1, 'Agua Mineral', 30),
-(1, 'Jugo de Naranja', 20),
-(1, 'Café', 40),
-(1, 'Té', 25),
--- Para la categoría 'Carnes'
-(2, 'Filete de Ternera', 15),
-(2, 'Pollo Asado', 20),
-(2, 'Chuletas de Cerdo', 10),
-(2, 'Hamburguesa', 30),
-(2, 'Salchichas', 25),
--- Para la categoría 'Frutas'
-(3, 'Manzanas', 40),
-(3, 'Plátanos', 35),
-(3, 'Fresas', 25),
-(3, 'Uvas', 30),
-(3, 'Kiwi', 20),
--- Para la categoría 'Postres'
-(4, 'Pastel de Chocolate', 15),
-(4, 'Helado de Vainilla', 20),
-(4, 'Tarta de Fresa', 10),
-(4, 'Flan', 25),
-(4, 'Galletas de Mantequilla', 30);
+-- Para la categoría 'Ordenadores de sobremesa'
+(1, 'Ordenador Sobremesa PcPlus Ofimatica Intel Core i5-12400 / 32GB / 1TB SSD', 20),
+(1, 'Ordenador Sobremesa Gaming AMD Ryzen 7 / 16GB / 1TB SSD', 15),
+(1, 'Ordenador Sobremesa HP All-in-One', 10),
+(1, 'Ordenador Sobremesa Dell Inspiron', 12),
+(1, 'Ordenador Sobremesa Lenovo ThinkCentre', 8),
+(1, 'Ordenador Sobremesa Acer Aspire', 5),
+-- Para la categoría 'Portatiles'
+(2, 'Portátil HP Pavilion 15', 30),
+(2, 'Portátil Dell XPS 13', 25),
+(2, 'Portátil Lenovo Yoga', 20),
+(2, 'Portátil Asus ZenBook', 18),
+(2, 'Portátil Acer Swift', 22),
+(2, 'Portátil MacBook Air', 15),
+-- Para la categoría 'Componentes'
+(3, 'Tarjeta Gráfica NVIDIA RTX 3080', 20),
+(3, 'Memoria RAM 16GB DDR4', 40),
+(3, 'Disco Duro SSD 1TB', 25),
+(3, 'Placa Base ASUS ROG', 10),
+(3, 'Fuente de Alimentación 750W', 15),
+(3, 'Ventilador CPU Cooler Master', 30),
+(3, 'Tarjeta de Sonido Creative', 12),
+(3, 'Unidad Óptica Externa', 8),
+(3, 'Adaptador WiFi USB', 50),
+(3, 'Cables SATA', 100),
+(3, 'Caja de Ordenador ATX', 5),
+(3, 'Kit de Limpieza para PC', 60),
+-- Para la categoría 'Accesorios'
+(4, 'Teclado Mecánico', 15),
+(4, 'Ratón Inalámbrico', 20),
+(4, 'Monitor 24 pulgadas', 10),
+(4, 'Auriculares Gaming', 30),
+(4, 'Webcam HD', 25),
+(4, 'Alfombrilla para Ratón', 50),
+(4, 'Base Refrigeradora para Portátil', 18),
+(4, 'Micrófono USB', 12),
+(4, 'Altavoces Bluetooth', 22),
+(4, 'Cargador Universal para Portátil', 14),
+(4, 'Hub USB 3.0', 40),
+(4, 'Lámpara LED para Escritorio', 35),
+(4, 'Soporte para Monitor', 10),
+(4, 'Cable HDMI', 100),
+(4, 'Adaptador USB-C a HDMI', 25),
+(4, 'Funda para Portátil', 20),
+(4, 'Soporte para Portátil', 15),
+(4, 'Cámara de Seguridad WiFi', 8);
+
 
 -- Crear cinco pedidos en la tabla 'pedido'
 INSERT INTO pedido (CodCliente, Fecha) VALUES
