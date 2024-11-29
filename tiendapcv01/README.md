@@ -1,9 +1,9 @@
-### Restaurante
+### Tienda PcPlus
 # 1- Funcionamiento general
-En primer lugar, nos encontramos con login.php, en el cual introduciremos las credenciales (restaurante y contraseña) para poder entrar en nuestra cuenta.
+En primer lugar, nos encontramos con login.php, en el cual introduciremos las credenciales (cliente y contraseña) para poder entrar en nuestra cuenta.
 También tenemos el botón de “crear cuenta”, en el que, introduciendo la clave de administrador “root”, podremos crear nuevas cuentas que quedarán guardadas en nuestra base de datos.
 
-Una vez introducimos correctamente las credenciales, accederemos a categoria.php, donde tendremos las distintas categorías de los productos que tenemos para poder pedir para el restaurante con el que iniciamos sesión.
+Una vez introducimos correctamente las credenciales, accederemos a categoria.php, donde tendremos las distintas categorías de los productos que tenemos para poder pedir con el cliente con el que iniciamos sesión.
 
 Arriba, una característica que comparten en las distintas pantallas son los botones que muestran nuestro usuario, pedidos, cerrar sesión y carrito.
 
@@ -21,11 +21,11 @@ En cada pedido disponemos del número de pedido, su fecha y un botón de info de
 
 ## Base de datos
 
-La base de datos consiste en 5 tablas que son restaurantes,pedidos,categorías, productos y pedidos_productos
+La base de datos consiste en 5 tablas que son clientes,pedidos,categorías, productos y pedidos_productos
 
-- **restaurantes** consiste en su clave primaria CodRes, Correo y Clave.
+- **Clientes** consiste en su clave primaria CodCliente, Correo y Clave.
 
-- **Pedido** consiste en CodPed que es su clave primaria, CodRes que es clave foránea que viene de la tabla restaurante y Fecha.
+- **Pedido** consiste en CodPed que es su clave primaria, CodCliente que es clave foránea que viene de la tabla cliente y Fecha.
 
 - **Categoría** está formada por CodCat que es clave primaria y NombreCat.
 
@@ -34,18 +34,18 @@ La base de datos consiste en 5 tablas que son restaurantes,pedidos,categorías, 
 - **Pedido_Producto** se forma por la relación N:N de Pedido y Producto. Esta tabla se crea para representar eficientemente la relación entre estas tablas. Pedido_Producto está conformada por una id que es su clave primaria, CodPed y CodProd que son claves foráneas de sus respectivas tablas y unidades.
 
 ## Archivos
-- **Login.php** -> Aquí tenemos el funcionamiento de la pantalla para poder acceder al restaurante correspondiente. Si ponemos credenciales incorrectas, nos dará error de usuario o contraseña, para que el usuario revise si los ha puesto mal e intentar volver a acceder.
+- **Login.php** -> Aquí tenemos el funcionamiento de la pantalla para poder acceder al cliente correspondiente. Si ponemos credenciales incorrectas, nos dará error de usuario o contraseña, para que el usuario revise si los ha puesto mal e intentar volver a acceder.
 En el caso de hacer clic en crear cuenta será redirigido a crearcuenta.php.
 En el caso de hacer clic en iniciar sesión, será redirigido a categoria.php
 
-- **Crearcuenta.php** -> Introducimos el usuario del nuevo restaurante y su contraseña y, en caso de no estar repetido y poner bien la clave de administrador (root), se creará una nueva cuenta que estará guardada en pedidos.sql.
+- **Crearcuenta.php** -> Introducimos el usuario del nuevo cliente y su contraseña y, en caso de no estar repetido y poner bien la clave de administrador (root), se creará una nueva cuenta que estará guardada en pedidos.sql.
 
 - **Categoria.php** -> Pantalla que muestra las categorías de productos que, dependiendo a cual se hace clic, cargará un $_POST con el número de categoría correspondiente para que producto.php muestre la categoría correspondiente.
 
 - **Producto.php** -> Pantalla para poder seleccionar la cantidad y que productos añadir al carrito. Si nos pasamos de cantidad respecto al stock disponible, no se podrá añadir y nos dará un error por pasarnos del stock disponible.
 
 - **Carrito.php** -> Pantalla con los distintos productos añadidos. Se pueden borrar uno por uno, borrar todo el carrito o pedir los productos mostrados.
-(Al añadir productos al carrito, la cantidad se restará del stock disponible)
+(Al añadir productos al carrito, la cantidad se shopará del stock disponible)
 
 - **Pedidos.php** -> Pantalla que muestra todos los pedidos realizados, con la posibilidad de ver que incluye cada pedido.
 
@@ -53,28 +53,28 @@ En el caso de hacer clic en iniciar sesión, será redirigido a categoria.php
 
 - **Logout.php** -> Cerraremos la sesión actual, eliminando la cookie que contiene dicha sesión y volveremos a login.php
 
-- **Restaurante.php** -> Nos encontraremos la clase restaurante, el cual contiene métodos para el funcionamiento correcto de las distintas páginas web como validadores y consultas en la base de datos. Además también existen diferentes test para comprobar el correcto funcionamiento de las funciones.
+- **Tienda.php** -> Nos encontraremos la clase cliente, el cual contiene métodos para el funcionamiento correcto de las distintas páginas web como validadores y consultas en la base de datos. Además también existen diferentes test para comprobar el correcto funcionamiento de las funciones.
 
 - **Pedidos.sql** -> Este archivo contiene las sentencias sql para crear la base de datos, además de introducir los datos.
 
 - **Style.css** -> Archivos que contiene los distintos parámetros y efectos visuales de las distintas pantallas.
 
-## Métodos de clase restaurante
+## Métodos de clase cliente
 - **__construct**: Realiza la conexion a la base de datos mediante PDO y en caso de que no exista, la crea mediante el archivo pedidos.sql.
 
 - **__destruct**: Destruye la conexión a la base de datos.
 
 - **ejecuta_SQL($sql)**: Le introduces una sentencia sql y te devuelve el resultado si se pudo realizar la sentencia. Si no te devuelve false.
 
-- **Comprobarcreado($nombre)**: Introduces el nombre de un restaurante y te devuelve la id si existe o te devuelve 0 si no existe.
+- **Comprobarcreado($nombre)**: Introduces el nombre de un cliente y te devuelve la id si existe o te devuelve 0 si no existe.
 
-- **comprobar_usuario($nombre,$contras)**: Introduces el nombre de un restaurante y su clave, y si coinciden en la base de datos, devuelve la id del restaurante. en caso contrario devuelve 0;
+- **comprobar_usuario($nombre,$contras)**: Introduces el nombre de un cliente y su clave, y si coinciden en la base de datos, devuelve la id del cliente. en caso contrario devuelve 0;
 
 - **getCategorias()**: Devuelve un array con la lista de toda la información de todas las categorías (tabla categoría).
 
 - **getProductos($id_cat)**: Introduces la id de la categoría y te devuelve un array con todos los productos que contengan la id correspondiente.
 
-- **getNombreRestaurante($id_rest)**: Introduces la id de un restaurante y te devuelve su nombre.
+- **getNombrecliente($id_shop)**: Introduces la id de un cliente y te devuelve su nombre.
 
 - **comprobarStock($array)**: Le das un array con los productos de la cesta que vas a introducir en el carrito (array bidimensional, [0] contiene la id del producto y [1] las unidades que quieres coger). Comprobará si hay stock de todos los productos y por cada producto que no haya stock, lo guardará en un array de errores con los nombres de todos los que no hay stock suficiente. Devolverá el array $errores sin importar si está vacío o con elementos.
 
@@ -88,9 +88,9 @@ En el caso de hacer clic en iniciar sesión, será redirigido a categoria.php
 
 - **Crearusuario($nombre,$clave)**: Proporcionas un nombre y una contraseña y la crea en la base de datos.
 
-- **ConfirmarPedido($carrito,$id_rest)**: Proporcionas el array que contiene los productos en el carrito y inserta en la tabla pedidos el Id_rest y la fecha que se hace el carrito aparte también inserta en la tabla pedidos_productos el CodPed del pedido recien realizado, los códigos de los productos del carrito añadidos y sus unidades.
+- **ConfirmarPedido($carrito,$id_cliente)**: Proporcionas el array que contiene los productos en el carrito y inserta en la tabla pedidos el Id_shop y la fecha que se hace el carrito aparte también inserta en la tabla pedidos_productos el CodPed del pedido recien realizado, los códigos de los productos del carrito añadidos y sus unidades.
 
-- **ImprimirPedidos($id_rest)**: Proporcionas el id del restaurante y busca en la tabla de pedidos todos en los que el Codres coincida con el ID del restaurante y los enseña por pantalla.
+- **ImprimirPedidos($id_shop)**: Proporcionas el id del cliente y busca en la tabla de pedidos todos en los que el Codres coincida con el ID del cliente y los enseña por pantalla.
 
 - **ImprimirDatosPedidos($Codpedido)**: Introduces el código de un pedido y mostrará todos los productos del pedido con su cantidad pertenecientes al pedido seleccionado. Será mostrado a través de una tabla.
 
@@ -121,7 +121,7 @@ En el caso de hacer clic en iniciar sesión, será redirigido a categoria.php
 
 ## $_SESSION
 En todos los archivos hay un session_start() que recoge todas las variables de sesión
-- **$_SESSION[‘id_restaurante’]**: guarda el id del restaurante actual
+- **$_SESSION[‘id_cliente’]**: guarda el id del cliente actual
   
 - **$_SESSION[‘cat’]**: guarda el id de la categoría que se ha elegido
   
