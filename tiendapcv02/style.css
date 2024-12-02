@@ -1,0 +1,45 @@
+/* Estilo general para la tabla */
+table {
+    width: 70%; /* Ajusta el tamaño de la tabla */
+    border-collapse: collapse;
+    margin: 20px auto; /* Centra la tabla */
+    font-family: Arial, sans-serif;
+    table-layout: fixed; /* Asegura que las celdas tengan un ancho fijo */
+}
+
+/* Estilo de las celdas de la tabla */
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Fondo alterno para las filas */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Ajustes para las celdas con texto largo */
+td {
+    word-wrap: break-word; /* Permite que las palabras largas se rompan y no desborden */
+    overflow-wrap: break-word; /* Compatibilidad con navegadores antiguos */
+    white-space: normal; /* Asegura que el texto no se mantenga en una sola línea */
+    max-width: 200px; /* Limita el ancho de la celda si es necesario */
+}
+
+/* Para los encabezados de la tabla */
+th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Enlaces dentro de la tabla */
+a {
+    text-decoration: none;
+    color: #007BFF; /* Color de enlace azul */
+}
+
+a:hover {
+    color: #0056b3; /* Color cuando el enlace es hover */
+}
