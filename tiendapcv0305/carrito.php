@@ -70,7 +70,7 @@ if(isset($_REQUEST['DelProducto']))
     </script>
         <form method="post" action="carrito.php" onsubmit="return confirmarCancelacion()">
             <input type="hidden" name="cancelar" value="1">
-            <button type="submit">Cancelar</button>
+            <button type="submit">Vaciar carrito</button>
         </form>
 
         <form method="post" action="pago.php">
