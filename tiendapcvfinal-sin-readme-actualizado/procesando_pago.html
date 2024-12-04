@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="procesando_pago.css">
+    <title>Procesando Pago</title>
+</head>
+<body>
+    <div class="processing-container">
+        <div class="loader"></div>
+        <div class="message">Procesando pago...</div>
+    </div>
+
+    <script>
+        //  Establece un tiempo de 5 segundos en la animación (simulando que está verificando los datos del pago con la red de pagos correspondiente) y, después, redirige a completado.html
+        setTimeout(function() {
+            window.location.href = "completado.html";
+        }, 5000);
+    </script>
+</body>
+</html>
