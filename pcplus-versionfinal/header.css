@@ -1,0 +1,101 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #33333327;
+    color: rgb(0, 0, 0);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* Navegación principal */
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    color: white;
+    background-color: purple;
+    border-radius: 4px;
+}
+
+/* selector */
+.selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.selector .menu-item {
+    cursor: pointer;
+}
+
+/* Submenú */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    min-width: 100px;
+    left: 0;
+    width: max-content;
+}
+
+.submenu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.submenu a:hover {
+    background-color: purple;
+    border-radius: 4px;
+    color: white;
+}
+
+/* Muestra el submenú al pasar el ratón */
+.selector:hover .submenu {
+    display: block;
+}
+
+/* Usuario */
+.user-info {
+    font-size: 16px;
+    color: white;
+}
