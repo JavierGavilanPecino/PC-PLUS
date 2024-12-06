@@ -8,9 +8,7 @@ $nombreUsuario = $shop->getNombreCliente($_SESSION['id_cliente']);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabecera</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <!-- Enlaza el archivo CSS externo -->
     <link rel="stylesheet" href="header.css">
 </head>
