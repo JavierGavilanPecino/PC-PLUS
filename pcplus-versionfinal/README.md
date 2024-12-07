@@ -78,8 +78,6 @@ En el caso de hacer clic en iniciar sesión, será redirigido a categoria.php
 
 - **Footer.html** -> Archivo que contiene el pie de página de la web.
 
-- **
-
 - **Tienda.php** -> Nos encontraremos la clase tienda, la cual contiene métodos para el funcionamiento correcto de las distintas páginas web como validadores y consultas en la base de datos. 
 
 - **Pedidos.sql** -> Este archivo contiene las sentencias sql para crear la base de datos, además de introducir los datos.
